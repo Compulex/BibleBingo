@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html>
+    <head>
+		<meta charset="utf-8"/>
+		<meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link rel="stylesheet" type="text/css" href="style.css">
+		<title>Bible Bingo Game</title>
+    </head>
+    <body>
+		<h1>Bible Bingo Game</h1>
+        <div id="calling" class="game">
+            <button id="start_btn" onclick="startGame();" disabled>START GAME</button>
+
+            <div id="calls" class="game">
+                <p id="call"></p> 
+				<br>
+				<button id="next_btn" onclick="nextCall();">NEXT</button>
+				<br>
+                <div id="prev_calls" class="game">
+                    <h4 id="pchead">Previous Calls</h4>
+                </div>
+                <br>
+                <ul id="key">
+                    <li>&#x1f607;-Smiling face with halo</li>
+                    <li>&#x1f64f;-Folded Hands</li>
+                    <li>&#x1f47c;-Baby Angel</li>
+                    <li>&#x1f54a;-Dove</li>
+                    <li>&#x1f35e;-Bread</li>
+                    <li>&#x1f377;-Wine Glass</li>
+                    <li>&#x26ea;-Church</li>
+                    <li>&#x1f31d;-Full Moon Face</li>
+                    <li>&#x1f31e;-Sun with Face</li>
+                </ul>      
+            </div>
+        </div>
+        <div id="cards_num" class="game">
+            <input type="checkbox" id="old_testament" class="prep" name="old_testament" value="Old Testament">
+            <label for="old_testament" class="prep">Old Testament</label>
+            <br>
+            <input type="checkbox" id="new_testament" class="prep" name="new_testament" value="New Testament">
+            <label for="new_testament" class="prep">New Testament</label>
+            <br>
+            <label for="players">Number of players:</label>
+            <input type="number" id="players" min="2" maxlength="2" value="2">
+            <button id="make_cards_btn" onclick="makeCards();">Make Cards</button>
+        </div>
+        <button id="print_btn" onclick="printCards();">PRINT CARDS</button>
+        <br>
+        <p id="pnote">*Press CTRL+P in the new window. Printing from the laptop/desktop is recommended, until further notice.*</p>
+        <br>
+        <div id="cards" class="game"><h2 id="placeholder" style="margin-top: 10%;">&#128064;</h2></div>
+    </body>
+    <script src="bible_bingo.js"></script>
+</html>

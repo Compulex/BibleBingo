@@ -1,0 +1,44 @@
+body{
+    text-align: center;
+}
+table{
+    background-color: deepskyblue;
+    margin: 1px 0px 1px 0px;
+    padding: 1px;
+    table-layout: fixed;
+    width: 100%;
+    height: 81.7%;
+}
+table, td{
+    border: 1px solid black;
+    border-collapse: collapse;
+}
+th, td{
+    /*width: 25%;
+    height: 25%;*/
+    font-size: xx-large;
+    text-align: center;
+    padding: 7px;
+}
+.cross{
+    color: white;
+}
+ul{
+    display: inline-block;
+    text-align: start;
+    list-style: "\271e";
+    list-style-position: inside;
+    padding: 1px;
+}
+li{
+    font-size: x-large;
+}
+/*@media print{
+    th, td{
+        width: 120px;
+        height: 120px;
+        font-size: xx-large;
+        text-align: center;
+        padding: 7px;
+    }
+}*/

@@ -1,0 +1,120 @@
+body{
+    background-image: radial-gradient(white, deepskyblue);
+    background-attachment: fixed;
+    text-align: center;
+    
+}
+.bingo_display, .bd > td{
+    border: 1px solid black;
+    border-collapse: collapse;
+}
+.bingo_display{
+    margin-left: 0px;
+    margin-right: 0px;
+    padding: 1px;
+    display: inline-table;
+    background-color: deepskyblue;
+}
+.bd > th, .bd > td{
+    width: 60px;
+    height: 60px;
+    font-size: larger;
+    padding: 2px;
+}
+.hide{
+    visibility: hidden;
+}
+h3{
+    margin-top: 15px;
+    margin-bottom: auto;
+}
+h4{
+    margin: auto;
+}
+#tips_game{
+    width: 75%;
+    margin: auto;
+    padding: auto;
+}
+#tips{
+    text-align: center;
+    list-style: "\271e";
+    list-style-position: inside;
+}
+#tips{
+    margin-top: 5px;
+}
+#tips > li{
+    margin: 1px 0px 1px 0px;
+}
+
+/* Game Page */
+#calls{
+    display: none;
+}
+.game{
+    margin: 5px;
+    padding: 1px;
+}
+#call{
+    border: 2px solid white;
+    border-radius: 25px;
+    font-size: x-large;
+    padding: 2px;
+    margin: 0px 10px 5px 0px;
+    width: 200px;
+    display: inline-block;
+}
+#next_btn{
+    font-size: large;
+}
+#prev_calls, #cards{
+    display: inline-block;
+    background-color: #cccccc;
+    overflow-y: scroll;
+    text-align: center;
+}
+#prev_calls{
+    width: 200px;
+    height: 150px;
+    margin-top: 25px;
+}
+#key, #key > li{
+    display: inline;
+}
+#key > li{
+    list-style: "\271e";
+    margin-right: 5px;
+}
+#cards{
+    width: 90%;
+    height: 400px;
+}
+#pchead{
+    text-decoration: underline;
+}
+#players{
+    width: 50px;
+}
+#print_btn, #pnote{
+    display: none;
+}
+.bingo_cards{
+    background-color: deepskyblue;
+    margin: 1px;
+    padding: 1px;
+    float: left;
+}
+.bingo_cards, .bc > td{
+    border: 1px solid black;
+    border-collapse: collapse;
+}
+.bc > th, .bc > td{
+    width: 50px;
+    height: 50px;
+    font-size: larger;
+    padding: 7px;
+}
+.cross{
+    color: white;
+}
