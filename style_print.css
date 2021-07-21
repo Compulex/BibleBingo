@@ -6,6 +6,7 @@ table{
     margin: 1px 0px 1px 0px;
     padding: 1px;
     width: 95%;
+    page-break-before: always;
 }
 table, td{
     border: 1px solid black;
@@ -31,4 +32,8 @@ ul{
 }
 li{
     font-size: x-large;
+}
+@media print{
+    table{ page-break-before: always; }
+    ul{ page-break-after: always; }
 }
