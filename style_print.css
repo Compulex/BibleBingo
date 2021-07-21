@@ -12,8 +12,8 @@ table, td{
     border-collapse: collapse;
 }
 th, td{
-    width: 125px;
-    height: 125px;
+    width: 116px;
+    height: 116px;
     font-size: xx-large;
     text-align: center;
     padding: 7px;
@@ -32,6 +32,6 @@ li{
     font-size: x-large;
 }
 @media print{
-    table{ page-break-before: always; }
+    .page_break{ page-break-before: always; }
     ul{ page-break-after: always; }
 }
