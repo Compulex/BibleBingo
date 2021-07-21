@@ -32,6 +32,6 @@ li{
     font-size: x-large;
 }
 @media print{
-    .bingo_cards{ page-break-before: auto; }
+    table{ page-break-before: auto; }
     ul{ page-break-after: always; }
 }
