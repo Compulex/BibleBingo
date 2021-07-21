@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-16"/>
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link rel="stylesheet" type="text/css" href="style_print.css">
+        <title>Bingo Cards</title>
+    </head>
+    <body>
+        <script>
+            var body = document.body;
+            if(typeof(Storage) !== "undefined"){
+                console.log(sessionStorage.length);
+                for(let ss = 0; ss < sessionStorage.length; ss++){
+                    var key = sessionStorage.key(ss);
+                    var table = document.createElement("table");
+                    table.setAttribute("class", "bingo_cards");
+                    table.innerHTML = sessionStorage.getItem(key);
+                    body.appendChild(table);
+                    
+                    //key list
+                    var ul = document.createElement("ul");
+                    var li = document.createElement("li");
+                    var li1 = document.createElement("li");
+                    var li2 = document.createElement("li");
+
+                    var first = String.fromCodePoint("0x1f607") + "-Smiling face with halo " + 
+                        String.fromCodePoint("0x1f64f") + "-Folded Hands " + String.fromCodePoint("0x1f47c") + "-Baby Angel " +
+                        String.fromCodePoint("0x1f54a") + "-Dove " + String.fromCodePoint("0x1f35e") + "-Bread";
+                    
+                    li.appendChild(document.createTextNode(first));
+                    ul.appendChild(li);
+                    
+                    var second = String.fromCodePoint("0x1f377") + "-Wine Glass " + String.fromCodePoint("0x26ea") + "-Church " +
+                        String.fromCodePoint("0x1f31d") + "-Full Moon Face " + String.fromCodePoint("0x1f31e") + "-Sun with Face";
+                    
+                    li1.appendChild(document.createTextNode(second));
+                    ul.appendChild(li1);
+                    
+                    var bold = document.createElement("b");
+                    bold.appendChild(document.createTextNode("chapter number"));
+
+                    var bold_italic = document.createElement("b");
+                    var italic = document.createElement("i");
+                    italic.appendChild(document.createTextNode("starting verse number"));
+                    bold_italic.appendChild(italic);
+                    
+                    li2.appendChild(document.createTextNode("For each row and column: {book name}{"));
+                    li2.appendChild(bold);
+                    li2.appendChild(document.createTextNode("}:{"));
+                    li2.appendChild(bold_italic);
+                    li2.appendChild(document.createTextNode("} {the number of verses}"));
+                    ul.appendChild(li2);
+                    
+                    body.appendChild(ul);
+                }
+            }
+        </script>
+    </body>
+</html>
