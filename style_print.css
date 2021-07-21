@@ -12,8 +12,8 @@ table, td{
     border-collapse: collapse;
 }
 th, td{
-    width: 116px;
-    height: 116px;
+    width: 125px;
+    height: 125px;
     font-size: xx-large;
     text-align: center;
     padding: 7px;
