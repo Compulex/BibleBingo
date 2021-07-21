@@ -14,9 +14,7 @@
                 for(let ss = 0; ss < sessionStorage.length; ss++){
                     var key = sessionStorage.key(ss);
                     var table = document.createElement("table");
-                    if(ss > 0){
-                        table.setAttribute("class", "page_break");
-                    }
+                    table.setAttribute("class", "bingo_cards");
                     table.innerHTML = sessionStorage.getItem(key);
                     body.appendChild(table);
                     
