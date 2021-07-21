@@ -27,16 +27,8 @@ ul{
     list-style: "\271e";
     list-style-position: inside;
     padding: 1px;
+    page-break-after: always;
 }
 li{
     font-size: x-large;
 }
-/*@media screen (max-width: 768px){
-    th, td{
-        width: 120px;
-        height: 120px;
-        font-size: xx-large;
-        text-align: center;
-        padding: 7px;
-    }
-}*/
