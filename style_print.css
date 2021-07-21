@@ -6,7 +6,6 @@ table{
     margin: 1px 0px 1px 0px;
     padding: 1px;
     width: 95%;
-    page-break-before: always;
 }
 table, td{
     border: 1px solid black;
@@ -28,7 +27,6 @@ ul{
     list-style: "\271e";
     list-style-position: inside;
     padding: 1px;
-    page-break-after: always;
 }
 li{
     font-size: x-large;
