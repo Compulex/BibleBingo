@@ -49,8 +49,11 @@ h4{
 }
 
 /* Game Page */
-#calls{
+#calls, #cards_num, #note{
     display: none;
+}
+#new_btn{
+    margin-top: 5px;
 }
 .game{
     margin: 5px;

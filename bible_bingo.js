@@ -6,6 +6,7 @@
 var start_btn = document.getElementById("start_btn");
 var play_game = document.getElementById("calls");
 var cards_num = document.getElementById("players");
+var note = document.getElementById("note");
 
 var objects = [];
 var scripture1 = {}, scripture2 = {}, scripture3 = {}, scripture4 = {}, scripture5 = {};
@@ -19,10 +20,10 @@ var first = [], second = [], third = [], fourth = [], fifth = []; //rows
 var calls_arr = [], caller = [];
 var calls_set = new Set();
 var call_count = 0;
+var gameId = 0;
 
 
 function makeCards(){
-
     var url = "bible.json";
     var btest = null;
     var combined = false;
@@ -74,13 +75,14 @@ function makeCards(){
                 for(let call of calls_arr){
                     calls_set.add(call);
                 }
+                //delete cross in the call set it's considered a freebie
                 if(calls_set.has("B\u271e")){
                     calls_set.delete("B\u271e");
                 }
                 //change final set to array easier to iterate through
                 caller = Array.from(calls_set);
 
-                document.getElementById("call").innerHTML = caller[call_count];
+                document.getElementById("call").innerHTML = caller[0];
             }
         };
 
@@ -503,33 +505,59 @@ function addCalls(harr, table){
 }//addCalls
 
 function printCards(){
-    //opens new window to print
-    var newWin = window.open('', 'PRINT', 'height=800,width=900');
-    newWin.document.write('<html><head>');
-    newWin.document.write('<meta charset="utf-8"/>');
-    newWin.document.write('<meta name="viewport" content="width=device-width, initial-scale=1.0">'); 
-    newWin.document.write('<link rel="stylesheet" type="text/css" href="style_print.css">');
-    newWin.document.write('</head><body>');
-    //add each table in the new window   
+    //number of cards
+    sessionStorage.setItem("cards", cards_num.value);
+
+    //new key value pairs for sessionStorage
     for(let p = 1; p <= cards_num.value; p++){
         var table = document.getElementById("cards").children[p];
         var cloneTable = table.cloneNode(true);
-        newWin.document.write(cloneTable.outerHTML);
-        newWin.document.write('<ul><li>&#x1f607;-Smiling face with halo &#x1f64f;-Folded Hands &#x1f47c;-Baby Angel &#x1f54a;-Dove &#x1f35e;-Bread</li>');
-        newWin.document.write('<li>&#x1f377;-Wine Glass &#x26ea;-Church &#x1f31d;-Full Moon Face &#x1f31e;-Sun with Face</li>');
-        newWin.document.write('<li>For each row and column: {book name}{<b>chapter number</b>}:{<b><i>starting verse number</i></b>} {the number of verses}</li></ul>');
+        let kss = "bc" + p;
+        console.log(kss);
+        sessionStorage.setItem(kss, cloneTable.innerHTML);
     }
-    newWin.document.write('</body></html>');
     
-    //ready for game to start
-    start_btn.disabled = false;
+    //add timestamp represent game number
+    let date = Date.now().toString();
+    gameId = date.substr(6);
+    sessionStorage.setItem("gId", gameId);
+
+    //save a list of calls for each game in a file
+    localStorage.setItem(gameId, caller);
+
+    window.open("bingo_cards.html", "_blank");
 }//printCards
 
+function newGame(){
+    document.getElementById("new_btn").style.display = "none";
+    document.getElementById("cards_num").style.display = "block";
+}//newGame
+
 function startGame(){
-    //hide button
-    start_btn.style.display = "none";
-    //show calls div
-    play_game.style.display = "block";
+    var gn = document.getElementById("game_id").value;
+
+    //look for game number in local storage
+    var carr = localStorage.getItem(gn);
+    console.log(carr);
+    if(carr != null){
+        caller = carr.split(",");
+
+        //hide input and button
+        var tags = document.getElementsByClassName("start");
+        for(tag of tags){
+            tag.style.display = "none";
+        }
+        //hide new game button
+        document.getElementById("new_btn").style.display = "none";
+        //show calls div
+        play_game.style.display = "block";
+
+        //first call
+        document.getElementById("call").innerHTML = caller[0];
+    }
+    else{
+        alert("Game is not found. Check the bottom of each bingo card for game number.");
+    }
 }//startGame
 
 function nextCall(){

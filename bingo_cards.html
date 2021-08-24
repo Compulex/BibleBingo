@@ -9,13 +9,16 @@
     <body>
         <script>
             var body = document.body;
+
             if(typeof(Storage) !== "undefined"){
-                console.log(sessionStorage.length);
-                for(let ss = 0; ss < sessionStorage.length; ss++){
-                    var key = sessionStorage.key(ss);
+                var count = 1;
+                var cards = sessionStorage.getItem("cards");
+                for(let ss = 1; ss <= cards; ss++){
+
+                    console.log(sessionStorage.getItem("bc" + count));
                     var table = document.createElement("table");
                     table.setAttribute("class", "bingo_cards");
-                    table.innerHTML = sessionStorage.getItem(key);
+                    table.innerHTML = sessionStorage.getItem("bc" + count);
                     body.appendChild(table);
                     
                     //key list
@@ -26,16 +29,12 @@
 
                     var first = String.fromCodePoint("0x1f607") + "-Smiling face with halo " + 
                         String.fromCodePoint("0x1f64f") + "-Folded Hands " + String.fromCodePoint("0x1f47c") + "-Baby Angel " +
-                        String.fromCodePoint("0x1f54a") + "-Dove " + String.fromCodePoint("0x1f35e") + "-Bread";
+                        String.fromCodePoint("0x1f54a") + "-Dove " + String.fromCodePoint("0x1f35e") + "-Bread " + 
+                        String.fromCodePoint("0x1f377") + "-Wine " + String.fromCodePoint("0x26ea") + "-Church " +
+                        String.fromCodePoint("0x1f31d") + "-Full Moon Face " + String.fromCodePoint("0x1f31e") + "-Sun with Face";
                     
                     li.appendChild(document.createTextNode(first));
                     ul.appendChild(li);
-                    
-                    var second = String.fromCodePoint("0x1f377") + "-Wine Glass " + String.fromCodePoint("0x26ea") + "-Church " +
-                        String.fromCodePoint("0x1f31d") + "-Full Moon Face " + String.fromCodePoint("0x1f31e") + "-Sun with Face";
-                    
-                    li1.appendChild(document.createTextNode(second));
-                    ul.appendChild(li1);
                     
                     var bold = document.createElement("b");
                     bold.appendChild(document.createTextNode("chapter number"));
@@ -53,6 +52,19 @@
                     ul.appendChild(li2);
                     
                     body.appendChild(ul);
+
+                    var p = document.createElement("p");
+                    p.setAttribute("id", "game_id");
+                    p.innerHTML = "Game Number: " + sessionStorage.getItem("gId");
+
+                    var pn = document.createElement("p");
+                    pn.setAttribute("id", "card_num");
+                    pn.innerHTML = count;
+                    
+                    body.appendChild(p);
+                    body.appendChild(pn);
+
+                    count++;
                 }
             }
         </script>

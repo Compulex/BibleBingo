@@ -12,8 +12,8 @@ table, td{
     border-collapse: collapse;
 }
 th, td{
-    width: 116px;
-    height: 116px;
+    width: 110px;
+    height: 110px;
     font-size: xx-large;
     text-align: center;
     padding: 7px;
@@ -31,8 +31,13 @@ ul{
 li{
     font-size: x-large;
 }
+p{
+    font-size: large;
+    margin: 1px;
+    text-align: center;
+}
 @media print{
-    table:first-of-type{ page-break-before: avoid; }
     table{ page-break-before: always; }
+    table:first-of-type{ page-break-before: avoid;  }
     ul{ page-break-after: always; }
 }

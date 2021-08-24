@@ -8,8 +8,13 @@
     </head>
     <body>
 		<h1>Bible Bingo Game</h1>
+
         <div id="calling" class="game">
-            <button id="start_btn" onclick="startGame();" disabled>START GAME</button>
+            <input type="text" id="game_id" class="start" placeholder="Game Number" maxlength="7">
+            <button id="start_btn" class="start" onclick="startGame();">START GAME</button>
+            <p id="note" class="start">The game number is a 7-digit number that is located at the bottom of each bingo card.</p>
+            <br>
+            <button id="new_btn" onclick="newGame();">NEW GAME</button>
 
             <div id="calls" class="game">
                 <p id="call"></p> 
@@ -33,6 +38,7 @@
                 </ul>      
             </div>
         </div>
+
         <div id="cards_num" class="game">
             <input type="checkbox" id="old_testament" class="prep" name="old_testament" value="Old Testament">
             <label for="old_testament" class="prep">Old Testament</label>
@@ -44,11 +50,13 @@
             <input type="number" id="players" min="2" maxlength="2" value="2">
             <button id="make_cards_btn" onclick="makeCards();">Make Cards</button>
         </div>
+
         <button id="print_btn" onclick="printCards();">PRINT CARDS</button>
         <br>
-        <p id="pnote">*Press CTRL+P in the new window. Printing from the laptop/desktop is recommended, until further notice.*</p>
+        <p id="pnote">*Press CTRL+P in the new window.*</p>
         <br>
         <div id="cards" class="game"><h2 id="placeholder" style="margin-top: 10%;">&#128064;</h2></div>
     </body>
+    
     <script src="bible_bingo.js"></script>
 </html>
